@@ -1,0 +1,233 @@
+﻿<Page
+    x:Class="WeatherWise_2.Views.CurrentConditionsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:behaviors="using:WeatherWise_2.Behaviors"
+    behaviors:NavigationViewHeaderBehavior.HeaderMode="Never"
+    
+    
+    
+    Style="{StaticResource PageStyle}"
+    
+    mc:Ignorable="d">
+    <Grid
+        x:Name="ContentArea"
+         Loaded="ContentArea_Loaded">
+        <Grid x:Name="mainGrid" 
+            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
+            <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
+                Place your content here.-->
+            <Grid.Resources>
+                <!--<ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="/Assets/ColorPalette.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>-->
+            </Grid.Resources>
+            <Grid >
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/CurrentConditons/CurrentWeatherBackGround.png"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ProgressRing 
+                x:Name="progressRing"
+                Grid.Row="1"
+                IsActive="False"
+                Width="50" Height="50"
+                Foreground="Wheat"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Row="0" VerticalAlignment="Bottom"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical"
+                        Padding="0,10,0,0">
+
+                    <TextBlock x:Name="txtLocation"
+                             Text="{x:Bind ViewModel.CurrentWeatherData.Location_ToString, Mode=OneWay}"
+                             FontWeight="Thin"
+                             FontSize="25"
+                             Foreground="DarkSlateGray"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center" Margin="0,15,0,0"/>
+
+                    <TextBlock x:Name="txtLastUpdate"
+                             Text="{x:Bind ViewModel.CurrentWeatherData.LastUpdated_ToString, Mode=OneWay}"
+                             FontWeight="Thin"
+                             Margin="5,5"
+                             FontSize="14"
+                             Foreground="DarkSlateGray"
+                             HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="txtCurrentConditionDescription"
+                             Text="{x:Bind ViewModel.CurrentWeatherData.current.condition.text, Mode=OneWay}"
+                             FontWeight="Thin"
+                             FontSize="35"
+                             Foreground="DarkSlateGray"
+                             HorizontalAlignment="Center"
+                             TextAlignment="Center" Margin="0,35,0,0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                    <Image 
+                        x:Name="imgCurrentWeather"
+                        Source="{x:Bind ViewModel.CurrentWeatherData.WeatherIconPath, Mode=OneWay}"
+                        
+                        Stretch="Fill"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center" Width="180" Height="180" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Vertical"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                    <TextBlock 
+                        x:Name="txtFah"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Fah_ToString,Mode=OneWay}"
+                        Margin="20,5,20,26"
+                        FontWeight="Thin"
+                        FontSize="35"
+                        Foreground="DarkSlateGray"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" 
+                        Orientation="Vertical"
+                        Grid.RowSpan="2" Margin="0,35,0,0">
+                    <Grid Name="ImageEffectGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Resources>
+                            <AcrylicBrush x:Key="AcrylicGrid"
+                          BackgroundSource="Backdrop"
+                          TintColor="#166df1"
+                          TintOpacity="0.3"
+                          FallbackColor="Black"/>
+                        </Grid.Resources>
+
+                        <!--<Rectangle Grid.Column="1" Fill="{StaticResource AcrylicGrid}"/>-->
+                        <!--<Rectangle Grid.Column="2" Fill="{StaticResource AcrylicGrid}"/>-->
+                        <!--<Rectangle Grid.Column="3" Fill="{StaticResource AcrylicGrid}"/>-->
+
+
+                        <StackPanel Name="ImageEffectStackPanel"
+                            Style="{StaticResource stckPanelDesc_Value_Pair}"
+                                    
+                            Grid.Column="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            
+
+                            <TextBlock 
+                        Text="Wind Speed"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock 
+                        x:Name="txtWindSpeed"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Windspeed_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock
+                        Text="Wind Directon"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock
+                        x:Name="txtWindDirecton"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.WindDirection_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock   
+                        Text = "Wind Degree"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                        <TextBlock 
+                            x:Name="txtWindDegree"
+                            Text="{x:Bind ViewModel.CurrentWeatherData.WindDegree_ToString, Mode=OneWay}"
+                            Style="{StaticResource txtBlockValueStyle}"/>
+
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource stckPanelDesc_Value_Pair}"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock
+                            Text="Feel Like"
+                            Style="{StaticResource txtBlockLabelStyle}"/>
+
+                        <TextBlock
+                            x:Name="txtFeelsLike"
+                            Text="{x:Bind ViewModel.CurrentWeatherData.FeelsLike_ToString, Mode=OneWay}"
+                            Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock   
+                        Text = "Dewpoint"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock 
+                        x:Name="txtDew"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Dewpoint_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock 
+                        Text = "Humidity"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock 
+                        x:Name="txtHumidity"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Humidity_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                        </StackPanel>
+                        <StackPanel Style="{StaticResource stckPanelDesc_Value_Pair}"
+                            Grid.Column="3"
+                            HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <TextBlock 
+                        Text="Pressure"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock 
+                        x:Name="txtPressure"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Pressure_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock
+                        Text="Cloud Cover"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock
+                        x:Name="txtCloudCover"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.CloudCover_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+
+                            <TextBlock   
+                        Text = "Visibility"
+                        Style="{StaticResource txtBlockLabelStyle}"/>
+
+                            <TextBlock 
+                        x:Name="txtVisibility"
+                        Text="{x:Bind ViewModel.CurrentWeatherData.Dewpoint_ToString, Mode=OneWay}"
+                        Style="{StaticResource txtBlockValueStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

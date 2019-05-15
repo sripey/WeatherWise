@@ -1,0 +1,26 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WeatherWise_2.Styles">
+
+    <Style TargetType="StackPanel" x:Key="stckPanelDesc_Value_Column">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="stckPanelDesc_Value_Pair">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+        <Setter Property="Margin" Value="10,5,10,5"></Setter>
+        <Setter Property="HorizontalAlignment" Value="left"></Setter>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="stckPanelDesc_Mobile_Value_Column">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+    </Style>
+
+    <Style TargetType="StackPanel" x:Key="stckPanelDesc_Mobile_Value_Pair">
+        <Setter Property="Orientation" Value="Vertical"></Setter>
+        <Setter Property="Margin" Value="10,5,10,5"></Setter>
+        <Setter Property="HorizontalAlignment" Value="left"></Setter>
+    </Style>
+
+</ResourceDictionary>

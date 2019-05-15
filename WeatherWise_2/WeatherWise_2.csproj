@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{65282998-CC59-4C29-9F08-5633A0A1700C}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WeatherWise_2</RootNamespace>
+    <AssemblyName>WeatherWise_2</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>WeatherWise_2_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>NU1603;2008;</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>5.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.1.190405004.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightStd10">
+      <Version>5.4.1.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-us\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="BackgroundTasks\BackgroundTask.cs" />
+    <Compile Include="BackgroundTasks\BackgroundTask1.cs" />
+    <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
+    <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="Model\CurrentConditions\ApixuService.cs" />
+    <Compile Include="Model\CurrentConditions\Common.cs" />
+    <Compile Include="Model\CurrentConditions\Helper\Helper.cs" />
+    <Compile Include="Model\CurrentConditions\IApixuService.cs" />
+    <Compile Include="Model\CurrentConditions\Location.cs" />
+    <Compile Include="Model\Page1Service.cs" />
+    <Compile Include="Model\Radar\RadarLayerService.cs" />
+    <Compile Include="Model\Radar\RadarLocationService.cs" />
+    <Compile Include="Model\Radar\RadarService.cs" />
+    <Compile Include="Services\ActivationService.cs" />
+    <Compile Include="Activation\DefaultLaunchActivationHandler.cs" />
+    <Compile Include="Services\BackgroundTaskService.cs" />
+    <Compile Include="Services\LiveTileService.cs" />
+    <Compile Include="Services\LiveTileService.Samples.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\NavigationServiceEx.cs" />
+    <Compile Include="Services\OnBackgroundEnteringEventArgs.cs" />
+    <Compile Include="Services\SuspendAndResumeService.cs" />
+    <Compile Include="Services\SuspensionState.cs" />
+    <Compile Include="Services\ThemeSelectorService.cs" />
+    <Compile Include="ViewModels\CurrentConditionsViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\RadarViewModel.cs" />
+    <Compile Include="ViewModels\Page1ViewModel.cs" />
+    <Compile Include="ViewModels\Page2ViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\CurrentConditionsPage.xaml.cs">
+      <DependentUpon>CurrentConditionsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RadarPage.xaml.cs">
+      <DependentUpon>RadarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Page1Page.xaml.cs">
+      <DependentUpon>Page1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Page2Page.xaml.cs">
+      <DependentUpon>Page2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellPage.xaml.cs">
+      <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Styles\Acrylics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Thumb.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\MapMenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\StackPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\_Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\_FontSizes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\_Thickness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CurrentConditionsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RadarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Page1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Page2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ShellPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ResourceExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\CurrentConditons\CurrentWeatherBackGround.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\113.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\116.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\119.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\122.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\143.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\176.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\179.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\182.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\185.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\200.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\227.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\230.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\248.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\260.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\263.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\266.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\281.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\284.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\293.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\296.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\299.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\302.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\305.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\308.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\311.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\314.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\317.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\320.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\323.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\326.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\329.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\332.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\335.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\338.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\350.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\353.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\356.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\359.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\362.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\365.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\368.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\371.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\374.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\377.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\386.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\389.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\392.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Day\395.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\113.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\116.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\119.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\122.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\143.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\176.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\179.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\182.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\185.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\200.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\227.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\230.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\248.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\260.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\263.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\266.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\281.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\284.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\293.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\296.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\299.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\302.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\305.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\308.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\311.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\314.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\317.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\320.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\323.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\326.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\329.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\332.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\335.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\338.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\350.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\353.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\356.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\359.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\362.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\365.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\368.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\371.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\374.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\377.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\386.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\389.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\392.png" />
+    <Content Include="Assets\CurrentConditons\Icons\Night\395.png" />
+    <Content Include="Assets\Map\radarSitePositionIcon.png" />
+    <Content Include="Assets\Map\positionIcon.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <Content Include="Assets\Conditions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Assets\CurrentConditons\Icons\Night\Thumbs.db" />
+    <Content Include="Assets\radarsites.json" />
+    <None Include="WeatherWise_2_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WeatherWise_2.Core\WeatherWise_2.Core.csproj">
+      <Project>{C18A653F-6801-4184-8C36-AACBDD872BAE}</Project>
+      <Name>WeatherWise_2.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
