@@ -270,7 +270,7 @@
                            Text="2:56 PM"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center"/>
-                <TextBlock Text="{x:Bind ViewModel.TestFrameCount,Mode=OneWay}" VerticalAlignment="Center"
+                <TextBlock Text="{x:Bind RadarFrameListCount,Mode=OneWay}" VerticalAlignment="Center"
                            FontSize="32" Foreground="Black"/>
                 <TextBlock Text="{x:Bind ViewModel.SliderRadarFrame,Mode=OneWay}" VerticalAlignment="Center"
                            FontFamily="28" Foreground="Black"/>
@@ -282,7 +282,7 @@
 
         <maps:MapControl Grid.Row="1"
             x:Name="mapControl"
-                    
+                    CacheMode="BitmapCache"
             ZoomLevel="{x:Bind ViewModel.ZoomLevel, Mode=OneWay}"
             Center="{x:Bind ViewModel.Center, Mode=TwoWay}"
                        >

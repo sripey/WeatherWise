@@ -217,7 +217,12 @@ namespace WeatherWise_2.ViewModels
             set { _radarServiceLayerData = value; }
         }
 
-        public List<MapTileSource> RadarElements;
+        private ObservableCollection<MapTileSource> _radarFrameList;
+        public ObservableCollection<MapTileSource> RadarFrameList
+        {
+            get { return _radarFrameList; }
+            set { _radarFrameList = value; }
+        }
 
         private RadarImage _radarImageFrame;
         public RadarImage RadarImageFrame
@@ -227,7 +232,6 @@ namespace WeatherWise_2.ViewModels
         }
 
         private RadarImage[] _radarImageFrameArray;
-
         public RadarImage[] RadarImageFrameArray
         {
             get { return _radarImageFrameArray; }
@@ -291,20 +295,6 @@ namespace WeatherWise_2.ViewModels
             }
         }
 
-        private int _testFrameCount;
-        public int TestFrameCount
-        {
-            get { return _testFrameCount; }
-            set
-            {
-                if(_testFrameCount != value)
-                {
-                    _testFrameCount = value;
-                    RaisePropertyChanged("TestFrameCount");
-                }
-            }
-        }
-
         private int _sliderRadarFrame;
         public int SliderRadarFrame
         {
@@ -327,6 +317,7 @@ namespace WeatherWise_2.ViewModels
             {
                 if(_radarAnimationTileSource != value)
                 {
+                    
                     _radarAnimationTileSource = value;
                     RaisePropertyChanged("RadarAnimationTileSource");
                 }
@@ -346,26 +337,6 @@ namespace WeatherWise_2.ViewModels
                 }
             }
         }
-
-        private bool _radarAnimationTileFrameActive;
-        public bool RadarAnimationTileFrameActive
-        {
-            get { return _radarAnimationTileFrameActive; }
-            set
-            {
-                if(_radarAnimationTileSource != null || _radarAnimationTileSource.FrameCount > 0)
-                {
-                    _radarAnimationTileFrameActive = true;
-                    RaisePropertyChanged("RadarAnimationTileFrameActive");
-                }
-                else
-                {
-                    _radarAnimationTileFrameActive = false;
-                    RaisePropertyChanged("RadarAnimationTileFrameActive");
-                }
-            }
-        }
-
 
         private readonly BasicGeoposition _defaultPosition = new BasicGeoposition()
         {
@@ -388,7 +359,7 @@ namespace WeatherWise_2.ViewModels
             Center = new Geopoint(_defaultPosition);
             ZoomLevel = ZoomLevel_Conus;
             RadarServiceLayerData = new RadarLayerService();
-            //RadarMapTileSourceData = new MapTileSource();
+            RadarFrameList = new ObservableCollection<MapTileSource>();
         }
 
         public void InitializePage()
@@ -445,7 +416,16 @@ namespace WeatherWise_2.ViewModels
             }
         }
 
-        
+        public async void GetRadarFrameList()
+        {
+            for (int i = 0; i < RadarAnimationTileSource.FrameCount; i++)
+            {
+                MapTileSource mapTileSource = new MapTileSource();
+                mapTileSource = await _radarServiceLayerData.AddIndividualRadarFrameTile(i);
+                RadarFrameList.Add(mapTileSource);
+            }
+        }
+
         public async Task DisplayIndividualRadarFrame(MapControl map)
         {
             ClearRadarImages();
@@ -456,15 +436,7 @@ namespace WeatherWise_2.ViewModels
         public async Task InitializeRadarImages(MapControl map)
         {
             RadarAnimationTileSource = await _radarServiceLayerData.AddAnimatedRadarTiles();
-            //TestFrameCount = _mapTileSourceData.FrameCount;
-            //_sliderRadarFrame = RadarMapTileSourceData.FrameCount;
-            //RadarImageFrameArray = new RadarImage[RadarMapTileSourceData.FrameCount];
-            //for (int i = 0; i < RadarImageFrameArray.Length; i++)
-            //{
-            //    RadarImageFrameArray[i].TimeStamp = RadarImageFrameArray[i].TimeStamps[i];
-            //}
-            //map.TileSources.Add(RadarMapTileSourceData);
-            //var RadarsLayer = new MapElementsLayer();
+            GetRadarFrameList();
         }
 
         private void ClearRadarImages()
